@@ -7,11 +7,11 @@ import subprocess
 
 PLOT_CMD = "gnuplot -e \"%s pause -1\""
 
-MAS="set term x11 %d; plot 'rocket_log' using 1:2 with lines; set xlabel 'time'; set ylabel 'mass'; "
-ALT="set term x11 %d; plot 'rocket_log' using 1:3 with lines; set xlabel 'time'; set ylabel 'altitude'; "
-VEL="set term x11 %d; plot 'rocket_log' using 1:4 with lines; set xlabel 'time'; set ylabel 'velocity'; "
-THR="set term x11 %d; plot 'rocket_log' using 1:5 with lines; set xlabel 'time'; set ylabel 'thrust'; "
-ACC="set term x11 %d; plot 'rocket_log' using 1:6 with lines; set xlabel 'time'; set ylabel 'acceleration'; "
+MAS="set term x11 %d; set xlabel 'time'; set ylabel 'mass'; plot 'rocket_log' using 1:2 with lines; "
+ALT="set term x11 %d; set xlabel 'time'; set ylabel 'altitude'; plot 'rocket_log' using 1:3 with lines; "
+VEL="set term x11 %d; set xlabel 'time'; set ylabel 'velocity'; plot 'rocket_log' using 1:4 with lines; "
+THR="set term x11 %d; set xlabel 'time'; set ylabel 'thrust'; plot 'rocket_log' using 1:5 with lines; "
+ACC="set term x11 %d; set xlabel 'time'; set ylabel 'acceleration'; plot 'rocket_log' using 1:6 with lines; "
 
 def make_plot(plot_list):
 	pline = ""
@@ -49,4 +49,4 @@ if __name__=="__main__":
 	#response = urllib.request.urlopen("http://rckt.jetbrains.com/compute.jsp", bytes("[[0,500],[8,250],[20,150],[26,100],[50,95],[53,3.5],[70,7],[91.69,457.47],[200,0]]","ascii"))
 	print_waypoints(response.read())
 	#MAS ALT VEL THR ACC
-	make_plot([MAS,ALT])
+	make_plot([ACC])
