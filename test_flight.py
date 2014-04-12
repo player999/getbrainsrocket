@@ -9,7 +9,7 @@ def print_waypoints(waypoints):
 	waypoints = eval(waypoints)
 	wp = waypoints["waypoints"]
 	rocket_log = open("rocket_log","w")
-	rocket_log.write("time\tmass\taltitude\tvelocity\thrust\tacceleration")
+	rocket_log.write("time\tmass\taltitude\tvelocity\tthrust\tacceleration\n")
 	for entry in wp:
 		print("mass: %f"%entry["mass"]) 
 		print("time: %f"%entry["time"]) 
@@ -18,7 +18,7 @@ def print_waypoints(waypoints):
 		print("thrust: %f"%entry["thrust"]) 
 		print("acceleration: %f"%entry["acceleration"]) 
 		print("\n")
-		rocket_log.write("%f\t%f\t%f\t%f\t%f\t%f"%(entry["time"], entry["mass"], entry["altitude"], entry["velocity"], entry["thrust"], entry["acceleration"]))
+		rocket_log.write("%f\t%f\t%f\t%f\t%f\t%f\n"%(entry["time"], entry["mass"], entry["altitude"], entry["velocity"], entry["thrust"], entry["acceleration"]))
 	rocket_log.close()
 
 	#"state":"OVERLOAD","score":0,"position":-1
